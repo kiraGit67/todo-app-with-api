@@ -21,7 +21,9 @@ async function getToDoData(url) {
   const response = await fetch(url);
   const data = await response.json();
 
-  toDos.push(...data);
+  //toDos.push(...data);
+  toDos = data;
+  //console.log("ToDos: ", toDos);
   createList();
 }
 
@@ -94,7 +96,7 @@ addNewToDoButton.addEventListener("click", () => {
   newToDoInput.value = "";
 });
 
-deleteDoneToDosButton.addEventListener("click", () => {
+deleteDoneToDosButton.addEventListener("click", async () => {
   const doneToDos = toDos.filter((toDo) => {
     return toDo.done === true;
   });
@@ -102,12 +104,11 @@ deleteDoneToDosButton.addEventListener("click", () => {
   console.log(doneToDos);
 
   for (let doneToDo of doneToDos) {
-    fetch("http://localhost:4730/todos/" + doneToDo.id, {
+    await fetch("http://localhost:4730/todos/" + doneToDo.id, {
       method: "DELETE",
-    }).then((response) => response.json());
+    });
   }
-
-  createList();
+  getToDoData("http://localhost:4730/todos");
 });
 
 filterButtons.forEach((filterButton) => {
