@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App with API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>ToDo API</h1>
+    </header>
+    <main>
+        <section id="adding-section">
+            <div class="form">
+                <input type="text" id="new-toDo" name="new-toDo" placeholder="Get sh*t done!">
+                <button id="add-new-toDo">Add new ToDo</button>
+            </div>
+        </section>
+        <section id="filter-section">
+            <header class="section-header">
+                <h2>Filter & Options</h2>
+            </header>
+            <div id="options">
+                <div>
+                    <input type="radio" name="filter" id="all" value="all" class="custom-button" />
+                    <label for="all"><span>All</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="filter" id="open" value="open" class="custom-button" />
+                    <label for="open"><span>Open</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="filter" id="done" value="done" class="custom-button" />
+                    <label for="done"><span>Done</span></label>
+                </div>
+                <button id="delete-done-toDos">Delete Done ToDos</button>
+            </div>
+        </section>
+        <section id="list-section">
+            <header class="section-header">
+                <h2>Your ToDos</h2>
+            </header>
+            <ul id="to-do-list"></ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
